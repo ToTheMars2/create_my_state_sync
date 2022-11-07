@@ -27,8 +27,8 @@ echo $(curl ifconfig.me):$rpc_port
 
 ## Create peer
 ```
-rpc_port=$(sed -n "91 s/^.*://p" $Name_config_file/config/config.toml | sed -n 's/"$//p')
-echo $($Name_bin tendermint show-node-id)@$(curl ifconfig.me)$rpc_port
+rpc_port=$(sed -n "202 s/^.*://p" $Name_config_file/config/config.toml | sed -n 's/"$//p')
+echo $($Name_bin tendermint show-node-id)@$(curl ifconfig.me):$rpc_port
 ```
 
 ## Start RPC on your server
