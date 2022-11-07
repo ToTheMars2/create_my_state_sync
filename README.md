@@ -14,6 +14,9 @@ Name_service="hypersingd"
 ## Create RPC
 ```
 sed -i '91 s/127.0.0.1/0.0.0.0/' $Name_config_file/config/config.toml
+rpc_port=$(sed -n "91 s/^.*://p" $Name_config_file/config/config.toml | sed -n 's/"$//p')
+ufw allow $rpc_port 
+server Name_service restart
 
 ```
 
