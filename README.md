@@ -20,6 +20,14 @@ service $Name_service restart
 
 ```
 
+## Create peer
+```
+rpc_port=$(sed -n "91 s/^.*://p" $Name_config_file/config/config.toml | sed -n 's/"$//p')
+echo $($bin tendermint show-node-id)@$(curl ifconfig.me)$rpc_port
+```
+
+## Start RPC on your server
+
 ```
 SNAP_RPC="http://95.217.207.236:24557"
 Name_bin="hid-noded"
