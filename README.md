@@ -13,21 +13,21 @@ Name_service="hypersingd"
 
 ## Create RPC
 ```
-sed -i '91 s/127.0.0.1/0.0.0.0/' $Name_config_file/config/config.toml
-rpc_port=$(sed -n "91 s/^.*://p" $Name_config_file/config/config.toml | sed -n 's/"$//p')
+sed -i '91 s/127.0.0.1/0.0.0.0/' ~/$Name_config_file/config/config.toml
+rpc_port=$(sed -n "91 s/^.*://p" ~/$Name_config_file/config/config.toml | sed -n 's/"$//p')
 ufw allow $rpc_port 
 service $Name_service restart
 
 ```
 <b>Get `ip:port` for rpc check</b>
 ```
-rpc_port=$(sed -n "91 s/^.*://p" $Name_config_file/config/config.toml | sed -n 's/"$//p')
+rpc_port=$(sed -n "91 s/^.*://p" ~/$Name_config_file/config/config.toml | sed -n 's/"$//p')
 echo $(curl ifconfig.me):$rpc_port
 ```
 
 ## Create peer
 ```
-rpc_port=$(sed -n "202 s/^.*://p" $Name_config_file/config/config.toml | sed -n 's/"$//p')
+rpc_port=$(sed -n "202 s/^.*://p" ~/$Name_config_file/config/config.toml | sed -n 's/"$//p')
 echo $($Name_bin tendermint show-node-id)@$(curl ifconfig.me):$rpc_port
 ```
 
