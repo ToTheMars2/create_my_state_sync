@@ -19,6 +19,11 @@ ufw allow $rpc_port
 service $Name_service restart
 
 ```
+Check rpc
+```
+rpc_port=$(sed -n "91 s/^.*://p" $Name_config_file/config/config.toml | sed -n 's/"$//p')
+$(curl ifconfig.me):$rpc_port
+```
 
 ## Create peer
 ```
