@@ -24,6 +24,13 @@ service $Name_service restart
 rpc_port=$(sed -n "91 s/^.*://p" ~/$Name_config_file/config/config.toml | sed -n 's/"$//p')
 echo $(curl ifconfig.me):$rpc_port
 ```
+```
+Name_config_file='.hid-node'
+```
+```
+rpc_port=$(sed -n "91 s/^.*://p" ~/$Name_config_file/config/config.toml | sed -n 's/"$//p')
+echo http://localhost:$rpc_port
+```
 
 ## Create peer
 ```
