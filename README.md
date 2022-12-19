@@ -41,7 +41,7 @@ echo $($Name_bin tendermint show-node-id)@$(curl ifconfig.me):$rpc_port
 ## Start RPC on your server
 
 ```
-SNAP_RPC="http://65.108.66.34:24557"
+SNAP_RPC="http://65.109.108.152:24557"
 Name_bin="hid-noded"
 Name_config_file=".hid-node"
 Name_service="hypersingd"
